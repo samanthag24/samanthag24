@@ -1,0 +1,52 @@
+#user inputs a colour from red, green, yellow or blue
+choice1 = input("Choose a colour from red, green, yellow or blue: ")
+#if user input is invalid, try again.
+while choice1 != "red" and choice1 != "green" and choice1 != "yellow" and choice1 != "blue":
+    choice1 = input("Try again: ")
+
+#goes through the numbers clockwise for the number of characters in the name of the colour
+clockwise = [[1,2,3,4],[5,6,7,8],[1,2,3,4],[5,6,7,8],[1,2,3,4],[5,6,7,8],[1,2,3,4],[5,6,7,8]]
+#display the actions taken by the fortune teller
+for i in range(0,len(choice1)):
+    for j in range(0, 2, 2):
+        print(str(clockwise[i][j])+ ", " + str(clockwise[i][j+1]) + ", " + str(clockwise[i][j+2]) + " or " + str(clockwise[i][j+3]) + "?")
+#select a number
+print("Please enter " +str(clockwise[len(choice1)-1][0])+ ", " + str(clockwise[len(choice1)-1][1])+ ", " + str(clockwise[len(choice1)-1][2])+ " or " + str(clockwise[len(choice1)-1][3]) + "?" )
+choice2 = input("Your choice: ")
+#if user input is invalid, try again.
+while choice2 != str(clockwise[len(choice1)-1][0]) and choice2 != str(clockwise[len(choice1)-1][1]) and choice2 != str(clockwise[len(choice1)-1][2]) and choice2 != str(clockwise[len(choice1)-1][3]):
+    choice2 = input("Try again: ")
+#display the number
+print("Your choice is " + choice2)
+
+#goes through the numbers anti-clockwise for the number of times chosen by the user
+antiClockwise = [[5,6,7,8],[1,2,3,4],[5,6,7,8],[1,2,3,4],[5,6,7,8],[1,2,3,4],[5,6,7,8],[1,2,3,4]]
+for l in range(0, int(choice2)):
+    #if the number is 5, 6, 7, or 8 then the next choices are 1,2,3,4
+    #display the actions taken by the fortune teller and store the results
+    if choice2 == "5" or choice2 == "6" or choice2 == "7" or choice2 == "8":
+        print(str(clockwise[l][0])+ ", " + str(clockwise[l][1]) + ", " + str(clockwise[l][2]) + " or " + str(clockwise[l][3]) + "?")
+        my_array = clockwise[int(choice2)-1]
+    #if the number is 1, 2, 3, or 4 then the next choices are 5,6,7,8
+    #display the actions taken by the fortune teller and store the results
+    else:
+        print(str(antiClockwise[l][0])+ ", " + str(antiClockwise[l][1])+ ", " + str(antiClockwise[l][2])+ " or " + str(antiClockwise[l][3]) + "?" )
+        my_array = antiClockwise[int(choice2)-1]
+        
+#select a number
+print("Please enter " +str(my_array[0])+ ", " + str(my_array[1])+ ", " + str(my_array[2])+ " or " + str(my_array[3]) +":" )
+choice3 = input("Your choice: ")
+#if user input is invalid, try again.
+while choice3 != str(my_array[0]) and choice3 != str(my_array[1]) and choice3 != str(my_array[2]) and choice3 != str(my_array[3]):
+    choice3 = input("Try again: ")
+print("Your choice is " + choice3)
+
+#display the fortune
+fortunes = ["fortune1","fortune2", "fortune3", "fortune4", "fortune5", "fortune6", "fortune7", "fortune8"]
+fortune = str(fortunes[int(choice3) - 1])
+print("Your fortune: " + fortune)
+
+
+
+
+        
