@@ -1,0 +1,98 @@
+def display(word, lettersGuessed):
+    output=""
+    for i in range(0,len(lettersGuessed)):
+        if lettersGuessed[i]==0:
+            output+="_ "
+        else:
+            output+=word[i] + " "
+    print(output)
+
+
+hangmanDrawing0 = "    \n"+"    \n"+"     \n"+"     "
+hangmanDrawing1 = "    \n"+"    \n"+"     \n"+"  _  "
+hangmanDrawing2 = "    \n"+"    \n"+"     \n"+" __  "
+hangmanDrawing3 = "    \n"+"    \n"+"     \n"+"|__  "
+hangmanDrawing4 = "    \n"+"/   \n"+"|    \n"+"|__  "
+hangmanDrawing5 = " -  \n"+"/   \n"+"|    \n"+"|__  "
+hangmanDrawing6 = " -- \n"+"/   \n"+"|    \n"+"|__  "
+hangmanDrawing7 = " --¬\n"+"/   \n"+"|    \n"+"|__  "            
+hangmanDrawing8 = " --¬\n"+"/  o\n"+"|    \n"+"|__  "
+hangmanDrawing9 = " --¬\n"+"/  o\n"+"|   +\n"+"|__  "
+hangmanDrawing10= " --¬\n"+"/  o\n"+"|   +\n"+"|__/ "
+hangmanDrawing11= " --¬\n"+"/  o\n"+"|   +\n"+"|__/\\"
+
+hangmanDrawing=[hangmanDrawing0,hangmanDrawing1,hangmanDrawing2,hangmanDrawing3,
+hangmanDrawing4,hangmanDrawing5,hangmanDrawing6,hangmanDrawing7,
+hangmanDrawing8,hangmanDrawing9,hangmanDrawing10,hangmanDrawing11]
+
+
+MAXGUESSES=11
+word=input("Please enter the word to be guessed")
+lettersGuessed=[0]*len(word)
+currentGuess=0
+
+while(currentGuess<MAXGUESSES):
+    """###gives the hangman drawing
+    if currentGuess==0:
+        print(hangmanDrawing0)
+    elif currentGuess==1:
+        print(hangmanDrawing1)
+    elif currentGuess==2:
+        print(hangmanDrawing2)
+    elif currentGuess==3:
+        print(hangmanDrawing3)
+    elif currentGuess==4:
+        print(hangmanDrawing4)
+    elif currentGuess==5:
+        print(hangmanDrawing5)
+    elif currentGuess==6:
+        print(hangmanDrawing6)
+    elif currentGuess==7:
+        print(hangmanDrawing7)
+    elif currentGuess==8:
+        print(hangmanDrawing8)
+    elif currentGuess==9:
+        print(hangmanDrawing9)
+    elif currentGuess==10:
+        print(hangmanDrawing10)"""
+
+    print(hangmanDrawing[currentGuess])
+    
+	##prints the word to be guessed so far done
+    output=""
+    for i in range(0,len(lettersGuessed)):
+        if lettersGuessed[i]==0:
+            output+="_ "
+        else:
+            output+=word[i] + " "
+    print(output)
+
+    guess=input("Guess a letter, or the complete word")
+    if len(guess)!=1:
+        if word==guess:
+            break
+        else:
+            currentGuess+=1
+    else:
+        correct=False
+        for i in range(0,len(word)):
+            if word[i]==guess:
+                correct=True
+                lettersGuessed[i]=1
+        if correct:
+            completeword=True
+            for i in range (0,len(lettersGuessed)):
+                if lettersGuessed[i]==0:
+                    completeword=False
+            if completeword:
+                break
+        else:
+            currentGuess+=1
+
+if currentGuess==MAXGUESSES:
+    print(hangmanDrawing11)
+    print("you lose")
+else:
+    print("you win")
+
+    
