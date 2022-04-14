@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<style>
+	td{
+		border: 1px solid black;
+		width: 100px;
+		height: 100px;
+	}
+	
+	.emptySquare{
+		height: 100px;
+		width: 100px;
+		background-color: white;
+	}
+	
+	.nought{
+		height: 100px;
+		width: 100px;
+		background: url("https://www.freeiconspng.com/uploads/circle-icon-30.png");
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}
+	
+	.cross{
+		height: 100px;
+		width: 100px;
+		background: url("https://cdns.iconmonstr.com/wp-content/assets/preview/2012/240/iconmonstr-x-mark-1.png");
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}
+	</style>
+	
+	<script>
+	function circleFunction(input)
+	{
+		if(document.getElementById(input).className == "emptySquare"){
+		document.getElementById(input).className = "nought";
+		}
+		else if (document.getElementById(input).className == "nought"){
+		document.getElementById(input).className = "cross";
+		}
+		else if (document.getElementById(input).className == "cross"){
+		document.getElementById(input).className = "emptySquare";
+		}
+	}
+	
+	function clearFunction()
+	{
+		document.getElementById("one").className = "emptySquare";
+		document.getElementById("two").className = "emptySquare";
+		document.getElementById("three").className = "emptySquare";
+		document.getElementById("four").className = "emptySquare";
+		document.getElementById("five").className = "emptySquare";
+		document.getElementById("six").className = "emptySquare";
+		document.getElementById("seven").className = "emptySquare";
+		document.getElementById("eight").className = "emptySquare";
+		document.getElementById("nine").className = "emptySquare";
+		document.getElementById("winner").innerHTML = "";
+	}
+	
+	function calculateFunction()
+	{
+		if ((document.getElementById("one").className == "nought") && (document.getElementById("two").className == "nought") && (document.getElementById("three").className == "nought")){
+		document.getElementById("winner").innerHTML = "Nought Wins!";
+		}
+		else if((document.getElementById("four").className == "nought") && (document.getElementById("five").className == "nought") && (document.getElementById("six").className == "nought")){
+		document.getElementById("winner").innerHTML = "Nought Wins!";
+		}
+		else if((document.getElementById("seven").className == "nought") && (document.getElementById("eight").className == "nought") && (document.getElementById("nine").className == "nought")){
+		document.getElementById("winner").innerHTML = "Nought Wins!";
+		}
+		else if((document.getElementById("one").className == "nought") && (document.getElementById("four").className == "nought") && (document.getElementById("seven").className == "nought")){
+		document.getElementById("winner").innerHTML = "Nought Wins!";
+		}
+		else if((document.getElementById("two").className == "nought") && (document.getElementById("five").className == "nought") && (document.getElementById("eight").className == "nought")){
+		document.getElementById("winner").innerHTML = "Nought Wins!";
+		}
+		else if((document.getElementById("three").className == "nought") && (document.getElementById("six").className == "nought") && (document.getElementById("nine").className == "nought")){
+		document.getElementById("winner").innerHTML = "Nought Wins!";
+		}
+		else if((document.getElementById("one").className == "nought") && (document.getElementById("five").className == "nought") && (document.getElementById("nine").className == "nought")){
+		document.getElementById("winner").innerHTML = "Nought Wins!";
+		}
+		else if((document.getElementById("three").className == "nought") && (document.getElementById("five").className == "nought") && (document.getElementById("seven").className == "nought")){
+		document.getElementById("winner").innerHTML = "Nought Wins!";
+		}
+		else if((document.getElementById("one").className == "cross") && (document.getElementById("two").className == "cross") && (document.getElementById("three").className == "cross")){
+		document.getElementById("winner").innerHTML = "Cross Wins!";
+		}
+		else if((document.getElementById("four").className == "cross") && (document.getElementById("five").className == "cross") && (document.getElementById("six").className == "cross")){
+		document.getElementById("winner").innerHTML = "Cross Wins!";
+		}
+		else if((document.getElementById("seven").className == "cross") && (document.getElementById("eight").className == "cross") && (document.getElementById("nine").className == "cross")){
+		document.getElementById("winner").innerHTML = "Cross Wins!";
+		}
+		else if((document.getElementById("one").className == "cross") && (document.getElementById("four").className == "cross") && (document.getElementById("seven").className == "cross")){
+		document.getElementById("winner").innerHTML = "Cross Wins!";
+		}
+		else if((document.getElementById("two").className == "cross") && (document.getElementById("five").className == "cross") && (document.getElementById("eight").className == "cross")){
+		document.getElementById("winner").innerHTML = "Cross Wins!";
+		}
+		else if((document.getElementById("three").className == "cross") && (document.getElementById("six").className == "cross") && (document.getElementById("nine").className == "cross")){
+		document.getElementById("winner").innerHTML = "Cross Wins!";
+		}
+		else if((document.getElementById("one").className == "cross") && (document.getElementById("five").className == "cross") && (document.getElementById("nine").className == "cross")){
+		document.getElementById("winner").innerHTML = "Cross Wins!";
+		}
+		else if((document.getElementById("three").className == "cross") && (document.getElementById("five").className == "cross") && (document.getElementById("seven").className == "cross")){
+		document.getElementById("winner").innerHTML = "Cross Wins!";
+		}
+		else{
+		document.getElementById("winner").innerHTML = "Draw!";
+		}
+	}
+	</script>
+</HEAD>
+<BODY>
+	<h1>Noughts and Crosses</h1>
+	<table>
+		<tr>
+			<td>
+				<div class="emptySquare" onclick="return circleFunction('one')" id="one"></div>
+			</td>
+			<td>
+				<div class="emptySquare" onclick="return circleFunction('two')" id="two"></div>
+			</td>
+			<td>
+				<div class="emptySquare" onclick="return circleFunction('three')" id="three"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="emptySquare" onclick="return circleFunction('four')" id="four"></div>
+			</td>
+			<td>
+				<div class="emptySquare" onclick="return circleFunction('five')" id="five"></div>
+			</td>
+			<td>
+				<div class="emptySquare" onclick="return circleFunction('six')" id="six"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="emptySquare" onclick="return circleFunction('seven')" id="seven"></div>
+			</td>
+			<td>
+				<div class="emptySquare" onclick="return circleFunction('eight')" id="eight"></div>
+			</td>
+			<td>
+				<div class="emptySquare" onclick="return circleFunction('nine')" id="nine"></div>
+			</td>
+		</tr>
+	</table>
+	<button onclick="return clearFunction()">Restart</button>
+	<button onclick="return calculateFunction()">Win or Draw?</button>
+	<p id="winner"></p>
+</BODY>
+</HTML>
